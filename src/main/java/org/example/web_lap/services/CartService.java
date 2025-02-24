@@ -77,7 +77,7 @@ public class CartService {
     public void removeCartById(Long cartId, Long productDetailId) {
         Cart cart = cartRepository.findById(cartId)
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy giỏ hàng"));
-
+System.out.println(cart.getCartItems());
         CartItem cartItemToRemove = cart.getCartItems().stream()
                 .filter(cartItem -> cartItem.getProductDetail().getId().equals(productDetailId))
                 .findFirst()
